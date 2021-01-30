@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MemesApp</string>
+
+    <string name="image_fragment_next_button_description">Next</string>
+    <string name="image_fragment_previous_button_description">previous</string>
+    <string name="image_fragment_reload_button_description">Reload</string>
+    <string name="image_fragment_loading_error_text">Произошла ошибка при загрузке данных. Проверьте подключение к сети.</string>
+    <string name="image_fragment_retry_text">Повторить</string>
+    <string name="Image_fragment_content_description">Контент</string>
+
+    <string name="latest_page_title">Последние</string>
+    <string name="latest_page_category">latest</string>
+    <string name="best_page_title">Лучшие</string>
+    <string name="best_page_category">top</string>
+    <string name="hot_page_title">Горячие</string>
+    <string name="hot_page_category">hot</string>
 </resources>
