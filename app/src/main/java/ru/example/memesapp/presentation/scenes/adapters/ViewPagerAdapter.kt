@@ -12,7 +12,6 @@ class ViewPagerAdapter(private val context: Context) :
         const val PAGE_COUNT = 3
     }
 
-
     private val tabTitles: Array<String> by lazy {
         arrayOf(
             context.getString(R.string.latest_page_title),

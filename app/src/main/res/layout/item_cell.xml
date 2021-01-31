@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_margin="16dp"
+    app:cardCornerRadius="6dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="false"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="8dp">
 
-    <ImageView
-        android:id="@+id/ivImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/Image_fragment_content_description"
-        tools:src="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:contentDescription="@string/Image_fragment_content_description"
+            tools:src="@tools:sample/avatars" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@drawable/bottom_gradient"
-        android:layout_marginHorizontal="16dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="66dp"/>
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp"
+            tools:text="Image description" />
+</androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginHorizontal="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:background="@drawable/bottom_solid"
-        android:ellipsize="end"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:maxLines="2"
-        tools:text="Image description" />
-
-</FrameLayout>

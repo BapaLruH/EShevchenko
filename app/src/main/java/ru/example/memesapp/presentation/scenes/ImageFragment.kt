@@ -8,6 +8,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -18,6 +22,7 @@ import ru.example.memesapp.databinding.ItemCellBinding
 import ru.example.memesapp.presentation.models.ImageItem
 import ru.example.memesapp.presentation.models.PageState
 import ru.example.memesapp.presentation.scenes.adapters.BaseAdapter
+import ru.example.memesapp.presentation.utils.dpToPxInt
 import ru.example.memesapp.presentation.utils.fragmentViewModels
 import ru.example.memesapp.presentation.utils.viewbindingdelegate.viewBinding
 import ru.example.memesapp.presentation.view_models.ImageViewModel
@@ -92,7 +97,7 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
                             btnPrevious.isVisible = buttonVisibility(currentPosition, itemCount)
                             btnNext.isVisible = buttonVisibility(currentPosition, itemCount, true)
                         }
-                        if (currentPosition >= itemCount - 2) {
+                        if (currentPosition >= itemCount) {
                             viewModel.loadData()
                         }
                     }
@@ -132,6 +137,7 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
             bindFunction = { holder, item ->
                 with(holder) {
                     Glide.with(root).asGif().load(item.image).placeholder(R.drawable.ic_loading)
+                        .apply(RequestOptions().transform(CenterCrop() ,RoundedCorners(requireContext().dpToPxInt(6))))
                         .into(ivImage)
                     tvDescription.text = item.description
                 }
