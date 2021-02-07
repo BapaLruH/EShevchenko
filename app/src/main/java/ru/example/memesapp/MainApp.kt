@@ -1,7 +1,7 @@
 package ru.example.memesapp
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class MainApp: Application() {
-    val component by lazy { Component() }
-}
+@HiltAndroidApp
+class MainApp : Application() {}

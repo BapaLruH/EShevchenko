@@ -3,29 +3,19 @@ package ru.example.memesapp.presentation.scenes.adapters
 import android.content.Context
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import ru.example.memesapp.R
+import dagger.hilt.android.qualifiers.ActivityContext
+import ru.example.memesapp.di.TabCategories
+import ru.example.memesapp.di.TabTitles
 import ru.example.memesapp.presentation.scenes.ImageFragment
+import javax.inject.Inject
 
-class ViewPagerAdapter(private val context: Context) :
-    FragmentStateAdapter(context as FragmentActivity) {
+class ViewPagerAdapter @Inject constructor(
+    @ActivityContext private val context: Context,
+    @TabTitles private val tabTitles: List<String>,
+    @TabCategories val tabCategory: List<String>
+) : FragmentStateAdapter(context as FragmentActivity) {
     companion object {
         const val PAGE_COUNT = 3
-    }
-
-    private val tabTitles: Array<String> by lazy {
-        arrayOf(
-            context.getString(R.string.latest_page_title),
-            context.getString(R.string.best_page_title),
-            context.getString(R.string.hot_page_title)
-        )
-    }
-
-    private val tabCategory: Array<String> by lazy {
-        arrayOf(
-            context.getString(R.string.latest_page_category),
-            context.getString(R.string.best_page_category),
-            context.getString(R.string.hot_page_category)
-        )
     }
 
     override fun getItemCount(): Int = PAGE_COUNT

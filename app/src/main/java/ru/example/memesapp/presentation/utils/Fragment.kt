@@ -6,6 +6,7 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
+//Not used, for example
 inline fun <reified VM: ViewModel> Fragment.fragmentViewModels(crossinline factory: (SavedStateHandle) -> VM) =
     viewModels<VM>(
         factoryProducer = {
